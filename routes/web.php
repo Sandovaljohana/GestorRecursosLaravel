@@ -22,6 +22,8 @@ Route::get('/navbarTop', function () {
 Route::get('/navbarLeft', function () {
     return view('template/navbarLeft');
 });
-Route::get('/files', function () {
-    return view('template/files');
-});
+     Route::get('/files', [App\Http\Controllers\filesController::class, 'files']) -> name ('files');
+    
+
+
+

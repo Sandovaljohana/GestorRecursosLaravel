@@ -10,9 +10,11 @@
 </head>
 <body>
     <h1>NAVEGACIÓN PRINCIPAL</h1>
-<a href=""><div class="files">
-        <p><i class="fa-regular fa-file fa-xl" style="color: #74C0FC;"></i> Archivos</p>
+    <div class="files">
+            
+       <a href="{{route('files')}}"> <i class="fa-regular fa-file fa-xl" style="color: #74C0FC;"></i> Archivos </a>
+
+            
     </div>
-</a>
 </body>
 </html>
