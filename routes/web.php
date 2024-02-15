@@ -19,3 +19,9 @@ Route::get('/', function () {
 Route::get('/navbarTop', function () {
     return view('template/navbarTop');
 });
+Route::get('/navbarLeft', function () {
+    return view('template/navbarLeft');
+});
+Route::get('/files', function () {
+    return view('template/files');
+});
