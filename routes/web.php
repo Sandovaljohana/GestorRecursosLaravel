@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('bitlab');
+    return view('bitlab') -> name ('index');
 });
 Route::get('/navbarTop', function () {
-    return view('template/navbarTop');
+    return view('template/navbarTop') -> name ('');
 });
 Route::get('/navbarLeft', function () {
     return view('template/navbarLeft');

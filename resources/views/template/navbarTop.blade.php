@@ -9,9 +9,8 @@
 </head>
 <body>
     <nav> 
-        
             <div class="pitbul">
-                <h1>PITBUL</h1>
+                <img src="{{ asset('/img/Bitlab.png') }}" alt="logo">
            </div>
         
         <div class="botones">
