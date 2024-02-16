@@ -20,7 +20,7 @@ class Users extends Model
 
     public function archivos()
     {
-        return $this->hasMany(Archivo::class, 'id_usuario');
+        return $this->hasMany(Files::class, 'id_usuario');
     }
 
     public function archivosCompartidos()

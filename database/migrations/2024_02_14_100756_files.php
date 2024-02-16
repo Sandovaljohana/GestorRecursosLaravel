@@ -11,38 +11,39 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('usuarios', function (Blueprint $table) {
-        $table->bigIncrements('id');
-        $table->string('nombre')->nullable(false);
-        $table->string('correo')->unique()->nullable(false);
-        $table->string('palabra_secreta')->nullable(false);
-        $table->boolean('administrador')->default(false);
-        $table->timestamps();
-    });
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->nullable(false);
+            $table->string('email')->unique()->nullable(false);
+            $table->string('password')->nullable(false);
+            $table->boolean('admin')->default(false);
+            $table->timestamps();
+        });
 
-    Schema::create('archivos', function (Blueprint $table) {
-        $table->bigIncrements('id');
-        $table->string('nombre_original')->nullable(false);
-        $table->string('nombre_real')->unique()->nullable(false);
-        $table->date('fecha_creacion')->nullable(false);
-        $table->bigInteger('tamanio_bytes')->unsigned()->nullable(false);
-        $table->bigInteger('id_usuario')->unsigned()->nullable(false);
-        $table->enum('tipo', ['jpg', 'pdf', 'pptx', 'other'])->default('other');
-        $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
-        $table->timestamps();
-    });
- Schema::create('archivos_compartidos', function (Blueprint $table) {
-        $table->string('hash')->primary();
-        $table->bigInteger('id_archivo')->unsigned()->nullable(false);
-        $table->bigInteger('id_usuario_compartido')->unsigned()->nullable(false);
-        $table->foreign('id_archivo')->references('id')->on('archivos')->onDelete('cascade');
-        $table->foreign('id_usuario_compartido')->references('id')->on('usuarios')->onDelete('cascade');
-    });
-}
+        Schema::create('files', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('original_name')->nullable(false);
+            $table->string('real_name')->unique()->nullable(false);
+            $table->date('creation_date')->nullable(false);
+            $table->bigInteger('size_bytes')->unsigned()->nullable(false);
+            $table->bigInteger('user_id')->unsigned()->nullable(false);
+            $table->enum('type', ['jpg', 'pdf', 'pptx', 'other'])->default('other');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
+        });
+        Schema::create('shared_files', function (Blueprint $table) {
+            $table->string('hash')->primary();
+            $table->bigInteger('file_id')->unsigned()->nullable(false);
+            $table->bigInteger('shared_user_id')->unsigned()->nullable(false);
+            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
+            $table->foreign('shared_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
 public function down()
 {
-    Schema::dropIfExists('archivos_compartidos');
-    Schema::dropIfExists('archivos');
-    Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('shared_files');
+        Schema::dropIfExists('files');
+        Schema::dropIfExists('users');
 }
 };

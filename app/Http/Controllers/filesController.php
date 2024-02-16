@@ -8,13 +8,13 @@ class filesController extends Controller
 {
     public function index()
     {
-        $archivos = Archivo::all();
+        $archivos = Files::all();
         return view('archivos.index', compact('archivos'));
     }
 
     public function show($id)
     {
-        $archivo = Archivo::findOrFail($id);
+        $archivo = Files::findOrFail($id);
         return view('archivos.show', compact('archivo'));
     }
 }
