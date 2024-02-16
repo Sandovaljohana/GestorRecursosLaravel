@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 
 class filesController extends Controller
 {
-    public function files(){
-        return view('files');
+    public function index()
+    {
+        $archivos = Archivo::all();
+        return view('archivos.index', compact('archivos'));
     }
-    // public function blog(){
-    //     $posts = Post::with('user')->get(); 
-    //     $posts = Post::get();
-        
-    //     return view('blog', ['posts'=> $posts]);
 
-    // }
-    
+    public function show($id)
+    {
+        $archivo = Archivo::findOrFail($id);
+        return view('archivos.show', compact('archivo'));
+    }
 }

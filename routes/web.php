@@ -24,6 +24,7 @@ Route::get('/navbarLeft', function () {
 });
      Route::get('/files', [App\Http\Controllers\filesController::class, 'files']) -> name ('files');
     
-
+     Route::get('/files', [filesController::class, 'index']);
+     Route::get('/files/{id}', [filesController::class, 'show']);
 
 
