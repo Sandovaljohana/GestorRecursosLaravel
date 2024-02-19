@@ -46,9 +46,13 @@ Comentarios y Valoraciones:
 <br>
 Notificaciones:
 <br>
-● Sistema de notificaciones para informar sobre cambios en recursos o comentarios nuevos.</p>
+● Sistema de notificaciones para informar sobre cambios en recursos o comentarios nuevos.
+</p>
 
 <img src="1.png">
+<br>
+<h2>Cómo hacer la instalasión</h2>
+<p>Puedes clonar la carpeta directamente desde GitHub</p>
 <br>
 <h2>Tecnologías y herramienta utilizadas</h2>
 <br>
