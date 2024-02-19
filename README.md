@@ -49,3 +49,13 @@ Notificaciones:
 ● Sistema de notificaciones para informar sobre cambios en recursos o comentarios nuevos.</p>
 
 <img src="1.png">
+<br>
+<h2>Tecnologías y herramienta utilizadas</h2>
+<br>
+<img src="a.svg">
+<img src="b.svg">
+<img src="c.svg">
+<img src="d.svg">
+<img src="e.svg">
+<img src="f.svg">
+<img src="G.svg">
